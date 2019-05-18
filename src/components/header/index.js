@@ -1,5 +1,5 @@
 import React from "react";
-import css from "./header.module.css";
+import "./header.css";
 import Link from "next/link";
 import BurgerIcon from "../burger-icon";
 const headerItems = ["Search", "Movies", "TV Shows"];
@@ -9,12 +9,12 @@ const Header = () => {
     setShowMenu(showMenu => !showMenu);
   }, []);
   return (
-    <div className={css.container}>
-      <div className={css.subcontainer}>
-        <h1 className={css.brand}>CinemaToday</h1>
-        <div className={css.headerItems}>
+    <div className="header-container">
+      <div className="subcontainer">
+        <h1 className="brand">CinemaToday</h1>
+        <div className="headerItems">
           {headerItems.map((item, _index) => (
-            <div key={_index} className={css.headerItem}>
+            <div key={_index} className="headerItem">
               <Link href="/">
                 <a>{item}</a>
               </Link>
@@ -24,9 +24,9 @@ const Header = () => {
         <BurgerIcon onClick={handleBurgerIconClick} />
       </div>
       {showMenu ? (
-        <div className={css.headerItemsSm}>
+        <div className="headerItemsSm">
           {headerItems.map((item, _index) => (
-            <div key={_index} className={css.headerItemSm}>
+            <div key={_index} className="headerItemSm">
               <Link href="/">
                 <a>{item}</a>
               </Link>

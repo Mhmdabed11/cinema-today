@@ -1,8 +1,8 @@
 import React from "react";
-import css from "./burgerIcon.module.css";
+import "./burgerIcon.css";
 const BurgerIcon = props => {
   return (
-    <div {...props} className={css.container}>
+    <div {...props} className="burger-container">
       <div />
       <div />
       <div />

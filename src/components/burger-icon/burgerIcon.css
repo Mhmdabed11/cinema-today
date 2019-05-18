@@ -1,4 +1,4 @@
-.container {
+.burger-container {
   background-color: transparent;
   width: 20px;
   height: 20px;
@@ -7,14 +7,14 @@
   cursor: pointer;
   display: none;
 }
-.constainer div {
+.burger-container div {
   width: 100%;
   height: 4px;
   background-color: #e5e5e5;
 }
 
 @media only screen and (max-width: 600px) {
-  .container {
+  .burger-container {
     display: flex;
   }
 }
