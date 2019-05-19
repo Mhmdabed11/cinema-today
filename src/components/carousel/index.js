@@ -52,41 +52,35 @@ function Carousel({ movies, base_url, poster_size }) {
     setTotlaTrans(totalTrans => totalTrans + 100 / activeItems);
   };
   return (
-    <>
-      <div>
-        {x}, {width}px, {activeItems}
-      </div>
-      <div className="slider">
-        <div className="showPeek sliderMask">
-          <div
-            style={{
-              transform: `translateX(${totalTrans}%)`
-            }}
-            className="sliderContent row-with-x-columns"
-            onTouchStart={e => console.log(e)}
-          >
-            {Object.keys(movies).map(movie => (
-              <div className="slider-item">
-                <img
-                  src={`${base_url}${poster_size}${movies[movie].poster_path}`}
-                />
-              </div>
-            ))}
-          </div>
+    <div className="slider">
+      <div className="showPeek sliderMask">
+        <div
+          style={{
+            transform: `translateX(${totalTrans}%)`
+          }}
+          className="sliderContent row-with-x-columns"
+          onTouchStart={e => console.log(e)}
+        >
+          {Object.keys(movies).map((movie, _index) => (
+            <div key={_index} className="slider-item">
+              <img
+                src={`${base_url}${poster_size}${movies[movie].poster_path}`}
+              />
+            </div>
+          ))}
         </div>
       </div>
-
-      <button disabled={x === 0} onClick={prev}>
-        prev
+      <button className="slider-nav-prev" disabled={x === 0} onClick={prev}>
+        <div className="slider-nav-icon-prev" />
       </button>
       <button
-        className="next"
+        className="slider-nav-next"
         disabled={x === movies.length - activeItems}
         onClick={next}
       >
-        next
+        <div className="slider-nav-icon-next" />
       </button>
-    </>
+    </div>
   );
 }
 

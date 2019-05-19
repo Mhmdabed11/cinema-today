@@ -3,8 +3,9 @@
   z-index: 2;
   position: relative;
   margin: 0;
-  touch-action: pan-y;
   overflow: hidden;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch !important;
 }
 
 .slider .sliderMask {
@@ -14,10 +15,10 @@
 .slider .sliderMask.showPeek {
   overflow-x: visible;
 }
-/* .slider::-webkit-scrollbar {
+.slider::-webkit-scrollbar {
   display: none !important;
   -webkit-appearance: none !important;
-} */
+}
 .sliderContent {
   white-space: nowrap;
   transition: all 0.54s ease;
@@ -47,6 +48,80 @@
   max-height: 340px;
 }
 
+.slider-nav-next {
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  border: none;
+  height: 100%;
+  width: 100px;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 15px;
+}
+
+.slider-nav-prev {
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  background: linear-gradient(
+    -90deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  border: none;
+  height: 100%;
+  width: 100px;
+  cursor: pointer;
+  outline: none;
+  padding-left: 15px;
+}
+
+.slider .slider-nav-icon-prev {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #e5e5e5;
+  border-width: 5px 5px 0 0;
+  transform: rotate(-135deg);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease;
+}
+.slider .slider-nav-icon-next {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #e5e5e5;
+  border-width: 5px 5px 0 0;
+  transform: rotate(45deg);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease;
+}
+
+.slider-nav-prev:hover .slider-nav-icon-prev {
+  opacity: 1;
+  visibility: visible;
+}
+.slider-nav-next:hover .slider-nav-icon-next {
+  opacity: 1;
+  visibility: visible;
+}
+
+.slider-nav-prev:disabled .slider-nav-icon-prev {
+  display: none;
+}
+.slider-nav-next:disabled .slider-nav-icon-next {
+  display: none;
+}
 @media screen and (max-width: 1000px) {
   .slider-item {
     width: 20%;
@@ -63,5 +138,9 @@
   }
   .slider {
     overflow-x: auto;
+  }
+  .slider-nav-next,
+  .slider-nav-prev {
+    display: none;
   }
 }

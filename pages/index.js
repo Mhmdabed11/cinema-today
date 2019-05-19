@@ -1,11 +1,18 @@
 import React from "react";
 import Layout from "../src/components/layout";
-import { getMovieById } from "../src/api/get-movies/get-movie-by-id";
-import { getMoviesPlayingNow } from "../src/api/get-movies/get-movies-playing-now";
+
+import {
+  getMoviesPlayingNow,
+  getMoviesTopRated,
+  getMoviesUpcoming,
+  getMovieById
+} from "../src/api/get-movies/getMovies";
 import { getApiConfig } from "../src/api/config/get-api-config";
+
 import Carousel from "../src/components/carousel";
+import MovieMagazine from "../src/components/movie-magazine";
 const Index = props => {
-  const { movies, base_url, poster_size } = props;
+  const { playingNow, topRated, upComing, base_url, poster_size } = props;
   const previous = () => {
     sliderRef.current.slickPrev();
   };
@@ -15,12 +22,25 @@ const Index = props => {
   return (
     <Layout>
       <div>
-        <Carousel
-          movies={movies}
+        <MovieMagazine
+          title="Playing Now"
+          movies={playingNow}
           base_url={base_url}
           poster_size={poster_size}
         />
-        <pre>{/* <code>{JSON.stringify(props, null, 2)}</code> */}</pre>
+
+        <MovieMagazine
+          title="Top Rated"
+          movies={topRated}
+          base_url={base_url}
+          poster_size={poster_size}
+        />
+        <MovieMagazine
+          title="Up Coming"
+          movies={upComing}
+          base_url={base_url}
+          poster_size={poster_size}
+        />
       </div>
     </Layout>
   );
@@ -29,11 +49,19 @@ const Index = props => {
 Index.getInitialProps = async function() {
   try {
     const configRes = await getApiConfig();
-    const res = await getMoviesPlayingNow();
+    const nowPlaying = await getMoviesPlayingNow();
+    const topRated = await getMoviesTopRated();
+    const upComing = await getMoviesUpcoming();
     const base_url = configRes.data.images.base_url;
     const poster_size = configRes.data.images.poster_sizes[2];
     const backdrop_size = configRes.data.images.backdrop_sizes[3];
-    return { movies: res.data.results, base_url, poster_size };
+    return {
+      playingNow: nowPlaying.data.results,
+      topRated: topRated.data.results,
+      upComing: upComing.data.results,
+      base_url,
+      poster_size
+    };
   } catch (err) {
     console.log(err);
   }
