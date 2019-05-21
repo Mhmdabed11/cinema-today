@@ -37,6 +37,7 @@
   margin-right: 0.8rem;
   cursor: pointer;
   transition: color 0.2s linear;
+  color: #e5e5e5;
 }
 
 .header-container .subcontainer .headerItems .headerItem a {

@@ -19,27 +19,25 @@ const Index = props => {
   };
   return (
     <Layout>
-      <div>
-        <MovieMagazine
-          title="Playing Now"
-          movies={playingNow}
-          base_url={base_url}
-          poster_size={poster_size}
-        />
+      <MovieMagazine
+        title="Playing Now"
+        movies={playingNow}
+        base_url={base_url}
+        poster_size={poster_size}
+      />
 
-        <MovieMagazine
-          title="Top Rated"
-          movies={topRated}
-          base_url={base_url}
-          poster_size={poster_size}
-        />
-        <MovieMagazine
-          title="Up Coming"
-          movies={upComing}
-          base_url={base_url}
-          poster_size={poster_size}
-        />
-      </div>
+      <MovieMagazine
+        title="Top Rated"
+        movies={topRated}
+        base_url={base_url}
+        poster_size={poster_size}
+      />
+      <MovieMagazine
+        title="Up Coming"
+        movies={upComing}
+        base_url={base_url}
+        poster_size={poster_size}
+      />
     </Layout>
   );
 };

@@ -1,9 +1,13 @@
+:root {
+  --width: (100% /6);
+}
+
 .slider {
   font-family: sans-serif;
   z-index: 2;
   position: relative;
   margin: 0;
-  overflow: hidden;
+  overflow-x: hidden;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch !important;
 }
@@ -39,7 +43,7 @@
   white-space: normal;
   vertical-align: top;
   padding: 0 4px;
-  width: calc(100% / 6);
+  width: var(--width);
   max-height: 340px;
 }
 
@@ -124,19 +128,22 @@
 .slider-nav-next:disabled .slider-nav-icon-next {
   display: none;
 }
+
+@media (hover: hover) {
+}
 @media screen and (max-width: 1000px) {
-  .slider-item {
-    width: 20%;
+  :root {
+    --width: 20%;
   }
 }
 @media screen and (max-width: 700px) {
-  .slider-item {
-    width: 25%;
+  :root {
+    --width: 25%;
   }
 }
 @media screen and (max-width: 500px) {
-  .slider-item {
-    width: 34%;
+  :root {
+    --width: 34%;
   }
   .slider {
     overflow-x: auto;
