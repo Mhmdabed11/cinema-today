@@ -85,6 +85,10 @@
   outline: none;
   padding-left: 15px;
 }
+.slider-nav-next:focus,
+.slider-nav-prev:focus {
+  outline: none;
+}
 
 .slider .slider-nav-icon-prev {
   width: 20px;
@@ -92,8 +96,7 @@
   border: 1px solid #e5e5e5;
   border-width: 5px 5px 0 0;
   transform: rotate(-135deg);
-  opacity: 0;
-  visibility: hidden;
+  opacity: 0.3;
   transition: opacity 0.4s ease;
 }
 .slider .slider-nav-icon-next {
@@ -102,8 +105,7 @@
   border: 1px solid #e5e5e5;
   border-width: 5px 5px 0 0;
   transform: rotate(45deg);
-  opacity: 0;
-  visibility: hidden;
+  opacity: 0.3;
   transition: opacity 0.4s ease;
 }
 

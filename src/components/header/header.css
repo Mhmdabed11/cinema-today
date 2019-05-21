@@ -8,8 +8,7 @@
   background-color: transparent;
   width: 100%;
   height: fit-content;
-  max-width: 960px;
-  padding: 1rem 0.875rem;
+  padding: 1rem 0;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -17,10 +16,17 @@
 }
 
 .header-container .subcontainer .brand {
-  /* color: #e5e5e5; */
   color: #00b2a7;
   margin: 0;
   padding: 0;
+}
+
+.header-container .subcontainer .brand a {
+  color: #00b2a7;
+  text-decoration: none;
+}
+.header-container .subcontainer .brand a:hover {
+  color: #00b2a7;
 }
 
 .header-container .subcontainer .headerItems {

@@ -1,9 +1,11 @@
+.movie-magazine {
+  margin-bottom: 1rem;
+}
 .movie-magazine .movie-magazine-title {
   color: #e5e5e5;
   line-height: 1.5;
-
-  padding: 1rem 1rem;
+  padding: 0.5rem 0;
 }
-.movie-magazine .movie-magazine-title h3 {
+.movie-magazine .movie-magazine-title h4 {
   margin: 0;
 }

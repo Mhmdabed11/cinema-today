@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "next",
+    "dev": "node server.js",
     "build": "next build",
     "start": "next start",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,13 +16,13 @@
     "@now/next": "^0.3.3",
     "@zeit/next-css": "^1.0.1",
     "axios": "^0.18.0",
+    "bootstrap": "^4.3.1",
+    "express": "^4.17.0",
     "file-loader": "^3.0.1",
     "next": "^8.1.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-slick": "^0.24.0",
-    "semantic-ui-react": "^0.87.1",
-    "slick-carousel": "^1.8.1",
+    "reactstrap": "^8.0.0",
     "url-loader": "^1.1.2"
   }
 }

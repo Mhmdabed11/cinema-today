@@ -1,6 +1,8 @@
 import React from "react";
 import Header from "../header";
 import "./layout.css";
+import "bootstrap/dist/css/bootstrap.css";
+import { Container, Row, Col, Alert } from "reactstrap";
 const Layout = ({ children }) => {
   return (
     <div>
@@ -44,7 +46,7 @@ const Layout = ({ children }) => {
         }
       `}</style>
       <Header />
-      {children}
+      <Container>{children}</Container>
     </div>
   );
 };

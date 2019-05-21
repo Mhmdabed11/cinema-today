@@ -1,11 +1,9 @@
 import React from "react";
 import Layout from "../src/components/layout";
-
 import {
   getMoviesPlayingNow,
   getMoviesTopRated,
-  getMoviesUpcoming,
-  getMovieById
+  getMoviesUpcoming
 } from "../src/api/get-movies/getMovies";
 import { getApiConfig } from "../src/api/config/get-api-config";
 
@@ -54,7 +52,6 @@ Index.getInitialProps = async function() {
     const upComing = await getMoviesUpcoming();
     const base_url = configRes.data.images.base_url;
     const poster_size = configRes.data.images.poster_sizes[2];
-    const backdrop_size = configRes.data.images.backdrop_sizes[3];
     return {
       playingNow: nowPlaying.data.results,
       topRated: topRated.data.results,

@@ -2,8 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 import "./carousel.css";
-
-function Carousel({ movies, base_url, poster_size }) {
+export const Carousel = ({ movies, base_url, poster_size, children }) => {
   const [x, setX] = React.useState(0);
   const [width, setWidth] = React.useState(0);
   const [totalTrans, setTotlaTrans] = React.useState(0);
@@ -59,15 +58,8 @@ function Carousel({ movies, base_url, poster_size }) {
             transform: `translateX(${totalTrans}%)`
           }}
           className="sliderContent row-with-x-columns"
-          onTouchStart={e => console.log(e)}
         >
-          {Object.keys(movies).map((movie, _index) => (
-            <div key={_index} className="slider-item">
-              <img
-                src={`${base_url}${poster_size}${movies[movie].poster_path}`}
-              />
-            </div>
-          ))}
+          {children}
         </div>
       </div>
       <button className="slider-nav-prev" disabled={x === 0} onClick={prev}>
@@ -82,6 +74,8 @@ function Carousel({ movies, base_url, poster_size }) {
       </button>
     </div>
   );
-}
+};
 
-export default Carousel;
+export const CarouselItem = ({ children }) => {
+  return <div className="slider-item">{children}</div>;
+};
