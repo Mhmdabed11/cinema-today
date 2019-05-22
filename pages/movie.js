@@ -1,27 +1,31 @@
 import React from "react";
 import { withRouter } from "next/router";
 import Layout from "../src/components/layout";
-import { getMovieById } from "../src/api/get-movies/getMovies";
+import { getMovieById, getMovieVideos } from "../src/api/get-movies/getMovies";
 import { getApiConfig } from "../src/api/config/get-api-config";
+import Trailer from "../src/components/trailer";
+import MovieDisplay from "../src/components/movie-display";
 const Movie = withRouter(props => {
-  const { movieDetails, router, base_url, poster_size } = props;
+  const { movieDetails, base_url, poster_size, movieVideos } = props;
+  const trailerObj = movieVideos
+    .filter(movieVideo => movieVideo.type === "Trailer")
+    .shift();
+  const trailerKey = trailerObj.key;
+
   return (
     <Layout>
-      {/* <img src={`${base_url}${poster_size}${movieDetails.poster_path}`} /> */}
-      <div
-        style={{
-          backgroundImage: `url(${base_url}${poster_size}${
-            movieDetails.poster_path
-          })`,
-          width: "100%",
-          paddingTop: "75%",
-          backgroundSize: "cover",
-          maxWidth: "500px"
-        }}
+      <MovieDisplay
+        movieDetails={movieDetails}
+        base_url={base_url}
+        poster_size={poster_size}
+        className="mt-5"
       />
-      {/* <pre>
-        <code>{JSON.stringify(movieDetails, null, 2)}</code>
-      </pre> */}
+      <Trailer
+        trailerKey={trailerKey}
+        height="390"
+        width="640"
+        autoPlay={false}
+      />
     </Layout>
   );
 });
@@ -30,10 +34,15 @@ Movie.getInitialProps = async function(context) {
   const { id } = context.query;
   const movieDetails = await getMovieById(id);
   const configRes = await getApiConfig();
+  const movieVideos = await getMovieVideos(id);
   const base_url = configRes.data.images.base_url;
-  const poster_size = configRes.data.images.poster_sizes[4];
-  console.log(configRes.data.images.poster_sizes);
+  const poster_size = configRes.data.images.poster_sizes[2];
 
-  return { movieDetails: movieDetails.data, base_url, poster_size };
+  return {
+    movieDetails: movieDetails.data,
+    base_url,
+    poster_size,
+    movieVideos: movieVideos.data.results
+  };
 };
 export default Movie;

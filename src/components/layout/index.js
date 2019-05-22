@@ -3,6 +3,11 @@ import Header from "../header";
 import "./layout.css";
 import "bootstrap/dist/css/bootstrap.css";
 import { Container, Row, Col, Alert } from "reactstrap";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStroopwafel } from "@fortawesome/free-solid-svg-icons";
+library.add(faStroopwafel);
+
 const Layout = ({ children }) => {
   return (
     <div>
@@ -12,7 +17,8 @@ const Layout = ({ children }) => {
           padding: 0;
           box-sizing: border-box;
           font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-          background-color: #000;
+          background-color: #1d1a19;
+          color: #fff;
         }
         html {
           margin: 0;
@@ -43,6 +49,9 @@ const Layout = ({ children }) => {
         }
         .slick-previous:hover {
           background-color: rgba(0, 0, 0, 0.5) !important;
+        }
+        pre {
+          color: #fff;
         }
       `}</style>
       <Header />

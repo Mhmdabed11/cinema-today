@@ -16,3 +16,8 @@ export const getMoviesUpcoming = () => {
 export const getMovieById = id => {
   return axios.get(`${API_MOVIE}/${id}?api_key=${API_KEY}`);
 };
+export const getMovieVideos = id => {
+  return axios.get(
+    `${API_MOVIE}/${id}/videos?api_key=${API_KEY}&language=en-US`
+  );
+};

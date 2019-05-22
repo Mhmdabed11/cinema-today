@@ -1,0 +1,14 @@
+.production-company-logo {
+  height: 41px;
+  width: auto;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+}
+.production-company-logo img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  max-height: 100%;
+  object-fit: contain;
+}
