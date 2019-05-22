@@ -1,5 +1,6 @@
 {
   "version": 2,
   "name": "my-nextjs-app",
-  "builds": [{ "src": "next.config.js", "use": "@now/next" }]
+  "builds": [{ "src": "next.config.js", "use": "@now/next" }],
+  "routes": [{ "src": "/movie/(?<id>[^/]+)$", "dest": "/movie?id=$id" }]
 }
