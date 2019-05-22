@@ -1,27 +1,20 @@
 import React from "react";
-import YouTube from "react-youtube";
 import PropTypes from "prop-types"; // ES6
-const Trailer = ({ trailerKey, height, width, autoPlay }) => {
-  const opts = {
-    height: height,
-    width: width,
-    playerVars: {
-      autoplay: autoPlay
-    }
-  };
-  return <YouTube videoId={trailerKey} opts={opts} />;
+import "./trailer.css";
+const Trailer = ({ trailerKey }) => {
+  return (
+    <div className="trailer-container">
+      <iframe
+        className="trailer-container"
+        src={`https://www.youtube.com/embed/${trailerKey}`}
+        frameBorder="0"
+      />
+    </div>
+  );
 };
 
 Trailer.propTypes = {
-  trailerKey: PropTypes.string.isRequired,
-  height: PropTypes.string,
-  width: PropTypes.string,
-  autoPlay: PropTypes.bool
+  trailerKey: PropTypes.string.isRequired
 };
 
-Trailer.defaultProps = {
-  height: "390px",
-  width: "640px",
-  autoPlay: false
-};
 export default Trailer;

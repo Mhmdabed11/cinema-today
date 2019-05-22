@@ -6,6 +6,7 @@ import { Container, Row, Col, Alert } from "reactstrap";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStroopwafel } from "@fortawesome/free-solid-svg-icons";
+import "../../global.css";
 library.add(faStroopwafel);
 
 const Layout = ({ children }) => {
@@ -18,7 +19,7 @@ const Layout = ({ children }) => {
           box-sizing: border-box;
           font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
           background-color: #1d1a19;
-          color: #fff;
+          color: #e5e5e5;
         }
         html {
           margin: 0;

@@ -19,16 +19,18 @@ const MovieDisplay = props => {
         <h3 className="title">{movieDetails.title}</h3>
         {movieDetails.release_date ? (
           <div>
-            <span> {releaseDateTitle} </span>
+            <span className="theme-text-color"> {releaseDateTitle} </span>
             {movieDetails.release_date}
           </div>
         ) : null}
         {movieDetails.genres.length > 0 ? (
           <div>
-            {genreTitle}: {genres}
+            <span className="theme-text-color"> {genreTitle}</span>: {genres}
           </div>
         ) : null}
-        <div>Duration: {duration}</div>
+        <div>
+          <span className="theme-text-color">Duration:</span> {duration}
+        </div>
         {movieDetails.overview ? (
           <p title={movieDetails.overview} className="mt-1">
             {movieDetails.overview.substring(0, 250)}
@@ -36,19 +38,8 @@ const MovieDisplay = props => {
           </p>
         ) : null}
 
-        {movieDetails.production_companies[0].logo_path ? (
-          <div className="production-company-logo mt-3">
-            <img
-              src={`${base_url}${poster_size}${
-                movieDetails.production_companies[0].logo_path
-              }`}
-              alt="production-company"
-            />
-          </div>
-        ) : null}
-
         <div className="mt-3 d-flex">
-          <span className="mr-1"> Rating:</span>
+          <span className="mr-1 theme-text-color"> Rating:</span>
           <Rating rating={movieDetails.vote_average} outOf={"10"} />
         </div>
       </div>

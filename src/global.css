@@ -1,3 +1,7 @@
 :root {
-  --theme-color: ##00b2a7;
+  --theme-color: #00b2a7;
+}
+
+.theme-text-color {
+  color: var(--theme-color);
 }

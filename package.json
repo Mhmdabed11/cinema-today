@@ -27,7 +27,6 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-youtube": "^7.9.0",
     "reactstrap": "^8.0.0",
     "url-loader": "^1.1.2"
   }

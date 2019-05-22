@@ -21,3 +21,7 @@ export const getMovieVideos = id => {
     `${API_MOVIE}/${id}/videos?api_key=${API_KEY}&language=en-US`
   );
 };
+
+export const getSimilarMovies = id => {
+  return axios.get(`${API_MOVIE}/${id}/similar?api_key=${API_KEY}`);
+};
