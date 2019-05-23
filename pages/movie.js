@@ -52,10 +52,6 @@ const Movie = withRouter(props => {
         poster_size={"w154"}
         poster_size_sm={"w92"}
       />
-      {/* <Review /> */}
-      {/* <pre>
-        <code>{JSON.stringify(similarMovies, null, 2)}</code>
-      </pre> */}
     </Layout>
   );
 });

@@ -1,4 +1,52 @@
-.similar-movie-wrapper a {
+.similar-movie-container a {
   text-decoration: none !important;
   color: #e5e5e5 !important;
+}
+.similar-movie-image-container {
+  position: relative;
+}
+.similar-movie-info {
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  letter-spacing: 1.5px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: all 0.3s linear;
+}
+
+.similar-movie-info button {
+  background-color: var(--theme-color);
+  border: none;
+  color: var(--theme-text-color);
+  padding: 0.25rem 1rem;
+  border-radius: 4px;
+  margin-top: 0.5rem;
+}
+
+.similar-movie-info-rating {
+  margin-bottom: 100px;
+  transition: all 0.2s linear;
+}
+@media (hover: hover) {
+  .similar-movie-image-container:hover {
+    z-index: 2;
+  }
+  .similar-movie-image-container:hover .similar-movie-info {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .similar-movie-image-container:hover .similar-movie-info-rating {
+    margin-bottom: 0;
+  }
 }
