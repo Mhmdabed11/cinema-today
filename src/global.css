@@ -1,7 +1,17 @@
 :root {
   --theme-color: #00b2a7;
+  --theme-text-color: #e5e5e5;
+  --theme-color-hover: #089289;
 }
 
 .theme-text-color {
   color: var(--theme-color);
+}
+
+.c-t-btn {
+  background-color: var(--theme-color);
+  color: var(--theme-text-color);
+}
+.c-t-btn:hover {
+  background-color: var(--theme-color-hover);
 }
