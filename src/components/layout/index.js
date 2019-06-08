@@ -20,6 +20,7 @@ const Layout = ({ children }) => {
           font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
           background-color: #1d1a19;
           color: #e5e5e5;
+          overflow-x: hidden;
         }
         html {
           margin: 0;
@@ -56,7 +57,7 @@ const Layout = ({ children }) => {
         }
       `}</style>
       <Header />
-      <Container>{children}</Container>
+      {children}
     </div>
   );
 };

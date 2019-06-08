@@ -7,7 +7,6 @@ import {
 } from "../src/api/get-movies/getMovies";
 import { getApiConfig } from "../src/api/config/get-api-config";
 
-import Carousel from "../src/components/carousel";
 import MovieMagazine from "../src/components/movie-magazine";
 const Index = props => {
   const { playingNow, topRated, upComing, base_url, poster_size } = props;
